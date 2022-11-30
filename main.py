@@ -10,11 +10,35 @@ def calculate(input: int):
     return 100 / input
 
 
-def print_hi(name: str):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
-    return True
+def exponent(basis: int, expo: int):
+    ergebnis: int
+    if expo == 0:
+        return 1
+    ergebnis = 1  # oder ergebnis = basis
+    for i in range(1, 1 + expo, 1):
+        ergebnis = ergebnis * basis
+    return ergebnis
 
+
+print(exponent(2, 3))
+
+
+def exponent_2(basis: int, expo: int, startvalue: int):
+    if expo == 0:
+        return startvalue
+    return exponent_2(basis, expo - 1, startvalue * basis)
+
+
+print(exponent_2(2, 3, 1))
+
+
+def print_hi(name: str):  # Klammer kann auch leer sein -> gibt dann wie Variable nur den Wert/string
+    print(f'Hi,{name}')  # Press Strg+F8 to toggle the breakpoint.
+    return name  # 'name' nur gültig für die Funktion - danach nicht mehr
+
+
+print(print_hi('Zamanta'))
+exit(0)
 
 divider: int = 0
 alter: float = 30
